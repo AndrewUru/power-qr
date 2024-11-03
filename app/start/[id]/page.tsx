@@ -27,7 +27,8 @@ export async function generateMetadata({
   }
 
   const title = `PowerQrGPT: ${data.prompt}`;
-  const description = `Un código QR generado desde qrGPT.io que enlaza a: ${data.website_url}`;
+  const description = `Con PowerQRGPT, crear un código QR nunca fue tan fácil (ni tan
+            cool). : ${data.website_url}`;
   const image = data.image || 'https://qrGPT.io/og-image.png';
 
   return {
