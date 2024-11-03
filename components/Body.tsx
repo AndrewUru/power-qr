@@ -28,16 +28,15 @@ import { useRouter } from 'next/navigation';
 import { toast, Toaster } from 'react-hot-toast';
 
 const promptSuggestions = [
-  'A luxury resort overlooking a tropical beach at sunset',
-  'A charming bed and breakfast in a historic European village',
-  'A rooftop terrace with panoramic views of a vibrant city',
-  'A cozy mountain lodge with a fireplace and snow outside',
-  'A rustic outdoor dining area in a vineyard at golden hour',
-  'A bustling street café in Paris with coffee and pastries on the table',
-  'A private cabana on a beach with turquoise water and cocktails',
-  'A traditional tea house with scenic views of lush gardens',
+  'Un lujoso resort con vistas a una playa tropical al atardecer',
+  'Un encantador bed and breakfast en un pintoresco pueblo europeo',
+  'Una terraza en la azotea con vistas panorámicas de una ciudad vibrante',
+  'Un acogedor refugio de montaña con chimenea y nieve en el exterior',
+  'Un comedor rústico al aire libre en un viñedo durante la hora dorada',
+  'Un café callejero animado en París con café y pasteles en la mesa',
+  'Una cabaña privada en la playa con agua turquesa y cócteles',
+  'Una casa de té tradicional con vistas a exuberantes jardines',
 ];
-
 
 const generateFormSchema = z.object({
   url: z.string().min(1),
@@ -161,7 +160,7 @@ const Body = ({
                         <Input placeholder="roomgpt.io" {...field} />
                       </FormControl>
                       <FormDescription>
-                      Esto es a lo que enlazará tu código QR.
+                        Esto es a lo que enlazará tu código QR.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -175,13 +174,13 @@ const Body = ({
                       <FormLabel>Prompt</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="A city view with clouds"
+                          placeholder="Una taza de café en una cafetería"
                           className="resize-none"
                           {...field}
                         />
                       </FormControl>
                       <FormDescription className="">
-                      Así es como se verá la imagen en tu código QR.
+                        Así es como se verá la imagen en tu código QR.
                       </FormDescription>
 
                       <FormMessage />
@@ -189,7 +188,9 @@ const Body = ({
                   )}
                 />
                 <div className="my-2">
-                  <p className="text-sm font-medium mb-3">Sugerencias de Prompt</p>
+                  <p className="text-sm font-medium mb-3">
+                    Sugerencias de Prompt
+                  </p>
                   <div className="grid sm:grid-cols-2 grid-cols-1 gap-3 text-center text-gray-500 text-sm">
                     {promptSuggestions.map((suggestion) => (
                       <PromptSuggestion
@@ -262,7 +263,7 @@ const Body = ({
                         toast.success('Link copied to clipboard');
                       }}
                     >
-                      ✂️ Compartir
+                      🔗Compartir
                     </Button>
                   </div>
                 )}

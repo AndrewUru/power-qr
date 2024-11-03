@@ -93,3 +93,44 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* globals.css */
+
+@keyframes galleryAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-gallery > img {
+  animation: galleryAnimation 5s ease-in-out infinite;
+}
+
+section.relative::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    225deg,
+    rgba(91, 33, 182, 0.4),
+    rgba(245, 56, 85, 0.4)
+  );
+  filter: blur(100px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+section.relative .relative {
+  position: relative;
+  z-index: 10;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
