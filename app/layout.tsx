@@ -10,8 +10,8 @@ import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-let title = 'QrGPT - QR Code Generator';
-let description = 'Generate your AI QR Code in seconds';
+let title = 'PowerQrGPT - Creador de códigos QR';
+let description = 'Genera tu código QR con Inteligencia arificial en segundos';
 let url = 'https://www.qrgpt.io';
 let ogimage = 'https://www.qrgpt.io/og-image.png';
 let sitename = 'qrGPT.io';
@@ -51,7 +51,7 @@ export default function RootLayout({
         <PlausibleProvider domain="qrgpt.io" />
       </head>
       <body className={inter.className}>
-      <Suspense fallback={<div>Loading Navbar...</div>}>
+      <Suspense fallback={<div>Cargando MENU...</div>}>
         <Navbar />
       </Suspense>
         <main>{children}</main>

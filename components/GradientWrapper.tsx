@@ -5,15 +5,23 @@ const GradientWrapper = ({ children, ...props }: any) => (
       props.className || ''
     }`}
   >
-    <div
-      className="blur-[100px] absolute inset-0 w-full h-full"
-      style={{
-        background:
-          'linear-gradient(202.72deg, rgba(237, 78, 80, 0.05) 14.76%, rgba(152, 103, 240, 0.04) 34.37%, rgba(152, 103, 240, 0) 86.62%)',
-      }}
-    />
-    <div className="relative">{children}</div>
+    <div className="relative overflow-hidden">
+  {/* Fondo desenfocado con tonos morados */}
+  <div
+    className="blur-[100px] absolute inset-0 w-full h-full pointer-events-none"
+    style={{
+      background: 
+        'linear-gradient(202.72deg, rgba(123, 97, 255, 0.1) 15%, rgba(182, 123, 255, 0.07) 35%, rgba(202, 167, 255, 0) 85%)',
+    }}
+  />
+  
+  {/* Contenido principal en primer plano */}
+  <div className="relative z-10">
+    {children}
   </div>
+</div>
+
+</div>
 );
 
 export default GradientWrapper;

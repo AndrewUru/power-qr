@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" className="flex items-center gap-3">
               <Image src="/box.svg" alt="logo" width={30} height={30} />
-              <div className="font-bold text-lg">QrGPT</div>
+              <div className="font-bold text-lg">PowerQrGPT</div>
             </Link>
             <div className="md:hidden">
               <button
@@ -67,7 +67,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Cargando...</div>}>
             <NavbarContent state={state} setState={setState} pathname={pathname} />
           </Suspense>
         </div>
@@ -116,7 +116,7 @@ function NavbarContent({
             href="/start"
             className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline"
           >
-            Generate your QR Code
+            Genera tu código QR
           </NavLink>
         </li>
       </ul>

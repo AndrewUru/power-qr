@@ -28,11 +28,16 @@ import { useRouter } from 'next/navigation';
 import { toast, Toaster } from 'react-hot-toast';
 
 const promptSuggestions = [
-  'A city view with clouds',
-  'A beautiful glacier',
-  'A forest overlooking a mountain',
-  'A saharan desert',
+  'A luxury resort overlooking a tropical beach at sunset',
+  'A charming bed and breakfast in a historic European village',
+  'A rooftop terrace with panoramic views of a vibrant city',
+  'A cozy mountain lodge with a fireplace and snow outside',
+  'A rustic outdoor dining area in a vineyard at golden hour',
+  'A bustling street café in Paris with coffee and pastries on the table',
+  'A private cabana on a beach with turquoise water and cocktails',
+  'A traditional tea house with scenic views of lush gardens',
 ];
+
 
 const generateFormSchema = z.object({
   url: z.string().min(1),
@@ -142,7 +147,7 @@ const Body = ({
     <div className="flex justify-center items-center flex-col w-full lg:p-0 p-4 sm:mb-28 mb-0">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mt-10">
         <div className="col-span-1">
-          <h1 className="text-3xl font-bold mb-10">Generate a QR Code</h1>
+          <h1 className="text-3xl font-bold mb-10">Genera un código QR</h1>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(handleSubmit)}>
               <div className="flex flex-col gap-4">
@@ -156,7 +161,7 @@ const Body = ({
                         <Input placeholder="roomgpt.io" {...field} />
                       </FormControl>
                       <FormDescription>
-                        This is what your QR code will link to.
+                      Esto es a lo que enlazará tu código QR.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -176,7 +181,7 @@ const Body = ({
                         />
                       </FormControl>
                       <FormDescription className="">
-                        This is what the image in your QR code will look like.
+                      Así es como se verá la imagen en tu código QR.
                       </FormDescription>
 
                       <FormMessage />
@@ -184,7 +189,7 @@ const Body = ({
                   )}
                 />
                 <div className="my-2">
-                  <p className="text-sm font-medium mb-3">Prompt suggestions</p>
+                  <p className="text-sm font-medium mb-3">Sugerencias de Prompt</p>
                   <div className="grid sm:grid-cols-2 grid-cols-1 gap-3 text-center text-gray-500 text-sm">
                     {promptSuggestions.map((suggestion) => (
                       <PromptSuggestion
@@ -226,7 +231,7 @@ const Body = ({
           {submittedURL && (
             <>
               <h1 className="text-3xl font-bold sm:mb-5 mb-5 mt-5 sm:mt-0 sm:text-center text-left">
-                Your QR Code
+                Tu código QR
               </h1>
               <div>
                 <div className="flex flex-col justify-center relative h-auto items-center">
@@ -257,7 +262,7 @@ const Body = ({
                         toast.success('Link copied to clipboard');
                       }}
                     >
-                      ✂️ Share
+                      ✂️ Compartir
                     </Button>
                   </div>
                 )}

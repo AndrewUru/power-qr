@@ -26,8 +26,8 @@ export async function generateMetadata({
     return;
   }
 
-  const title = `QrGPT: ${data.prompt}`;
-  const description = `A QR code generated from qrGPT.io linking to: ${data.website_url}`;
+  const title = `PowerQrGPT: ${data.prompt}`;
+  const description = `Un código QR generado desde qrGPT.io que enlaza a: ${data.website_url}`;
   const image = data.image || 'https://qrGPT.io/og-image.png';
 
   return {
