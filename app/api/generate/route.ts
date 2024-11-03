@@ -51,15 +51,22 @@ export async function POST(request: NextRequest) {
   const id = nanoid();
   const startTime = performance.now();
 
-  let imageUrl = await replicateClient.generateQrCode({
-    url: reqBody.url,
-    prompt: reqBody.prompt,
-    qr_conditioning_scale: 2,
-    num_inference_steps: 30,
-    guidance_scale: 5,
-    negative_prompt:
-      'Longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, blurry',
-  });
+  let imageUrl;
+  try {
+    imageUrl = await replicateClient.generateQrCode({
+      url: reqBody.url,
+      prompt: reqBody.prompt,
+      qr_conditioning_scale: 2,
+      num_inference_steps: 30,
+      guidance_scale: 5,
+      negative_prompt:
+        'Longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, blurry',
+    });
+  } catch (error) {
+    console.error('Error al generar el código QR con replicateClient:', error);
+    return new Response('Error al generar el código QR', { status: 500 });
+  }
+  
 
   const endTime = performance.now();
   const durationMS = endTime - startTime;
@@ -70,18 +77,21 @@ export async function POST(request: NextRequest) {
   // upload & store in Vercel Blob
   const { url } = await put(`${id}.png`, file, { access: 'public' });
 
+ 
   await kv.hset(id, {
     prompt: reqBody.prompt,
     image: url,
     website_url: reqBody.url,
     model_latency: Math.round(durationMS),
   });
+  
 
   const response: QrGenerateResponse = {
     image_url: url,
     model_latency_ms: Math.round(durationMS),
     id: id,
   };
+  
 
   return new Response(JSON.stringify(response), {
     status: 200,
