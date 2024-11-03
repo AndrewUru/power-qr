@@ -1,4 +1,4 @@
-import { V0Logo } from './v0logo';
+
 
 const Footer = () => (
 <footer className="bg-gray-900 text-gray-200">
