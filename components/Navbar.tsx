@@ -1,31 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import NavLink from './NavLink';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 const Navbar = () => {
   const [state, setState] = useState(false);
-
-  const navigation = [
-    // { title: 'Testimonials', path: '#testimonials' },
-    { title: 'Homepage', path: '/' },
-  ];
-
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    // Add closing the navbar menu when navigating
-    const handleState = () => {
-      document.body.classList.remove('overflow-hidden');
-      setState(false);
-    };
-
-    handleState();
-  }, [pathname, searchParams]);
 
   const handleNavMenu = () => {
     setState(!state);
@@ -84,35 +67,62 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          <div
-            className={`flex-1 pb-3 mt-8 md:pb-0 md:mt-0 md:block ${
-              state ? '' : 'hidden'
-            }`}
-          >
-            <ul className="text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium">
-              {navigation.map((item, idx) => {
-                return (
-                  <li key={idx} className="duration-150 hover:text-gray-900">
-                    <Link href={item.path} className="block">
-                      {item.title}
-                    </Link>
-                  </li>
-                );
-              })}
-              <li>
-                <NavLink
-                  href="/start"
-                  className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline"
-                >
-                  Generate your QR Code
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <NavbarContent state={state} setState={setState} pathname={pathname} />
+          </Suspense>
         </div>
       </nav>
     </header>
   );
 };
+
+function NavbarContent({
+  state,
+  setState,
+  pathname,
+}: {
+  state: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+  pathname: string;
+}) {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const handleState = () => {
+      document.body.classList.remove('overflow-hidden');
+      setState(false);
+    };
+    handleState();
+  }, [pathname, searchParams, setState]);
+
+  const navigation = [{ title: 'Homepage', path: '/' }];
+
+  return (
+    <div
+      className={`flex-1 pb-3 mt-8 md:pb-0 md:mt-0 md:block ${
+        state ? '' : 'hidden'
+      }`}
+    >
+      <ul className="text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium">
+        {navigation.map((item, idx) => (
+          <li key={idx} className="duration-150 hover:text-gray-900">
+            <Link href={item.path} className="block">
+              {item.title}
+            </Link>
+          </li>
+        ))}
+        <li>
+          <NavLink
+            href="/start"
+            className="block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline"
+          >
+            Generate your QR Code
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 
 export default Navbar;

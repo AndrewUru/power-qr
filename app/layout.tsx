@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google';
 import Footer from '@/components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import PlausibleProvider from 'next-plausible';
+import { Suspense } from 'react';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -49,7 +51,9 @@ export default function RootLayout({
         <PlausibleProvider domain="qrgpt.io" />
       </head>
       <body className={inter.className}>
+      <Suspense fallback={<div>Loading Navbar...</div>}>
         <Navbar />
+      </Suspense>
         <main>{children}</main>
         <Analytics />
         <Footer />
