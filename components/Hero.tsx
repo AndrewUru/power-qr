@@ -21,7 +21,7 @@ export default function Hero() {
             Dale vida a tus enlaces con IA
           </h1>
           <p className="max-w-xl mx-auto">
-            Con PowerQRGPT, crear un código QR nunca fue tan fácil (ni tan
+            Con ElSaltoWeb QRGPT, crear un código QR nunca fue tan fácil (ni tan
             cool). Deja que la IA haga el trabajo y obtén un QR con estilo en
             segundos. <br></br>Y sí, ¡es completamente gratis!
           </p>
@@ -30,7 +30,7 @@ export default function Hero() {
               href="/start"
               className="text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 py-2 px-4 rounded-md transition transform hover:scale-105"
             >
-              Genera tu QR ahora
+              Genera tu QR ahora!
             </NavLink>
             <NavLink
               target="_blank"

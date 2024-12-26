@@ -7,13 +7,13 @@ const CTA = () => (
           id="oss"
         >
           Haz que tus enlaces hablen con{' '}
-          <span className="text-indigo-600">PowerQrGPT</span>
+          <span className="text-indigo-600">ElSaltoWeb QrGPT</span>
         </h2>
         <p className="text-lg text-gray-700 sm:text-xl">
-          Olvídate de los códigos QR aburridos. Con PowerQrGPT, cada enlace
-          cobra vida. Perfecto para hostelería, turismo y cualquier negocio que
-          quiera dejar huella, QrGPT convierte tus enlaces en una experiencia
-          visual, lista para sorprender y compartir.
+          Olvídate de los códigos QR aburridos. Con ElSaltoWeb QRGPT, cada
+          enlace cobra vida. Perfecto para hostelería, turismo y cualquier
+          negocio que quiera dejar huella, QrGPT convierte tus enlaces en una
+          experiencia visual, lista para sorprender y compartir.
         </p>
         <p className="text-sm text-gray-500">
           ¿Curiosidad por el código? ¡Échale un vistazo en GitHub!

@@ -26,8 +26,8 @@ export async function generateMetadata({
     return;
   }
 
-  const title = `PowerQrGPT: ${data.prompt}`;
-  const description = `Con PowerQRGPT, crear un código QR nunca fue tan fácil (ni tan
+  const title = `ElSaltoWebQrGPT: ${data.prompt}`;
+  const description = `Con ElSaltoWeb QRGPT, crear un código QR nunca fue tan fácil (ni tan
             cool). : ${data.website_url}`;
   const image = data.image || 'https://qrGPT.io/og-image.png';
 

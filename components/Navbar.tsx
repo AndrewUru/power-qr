@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/" className="flex items-center gap-3">
               <Image src="/box.svg" alt="logo" width={30} height={30} />
-              <div className="font-bold text-lg">PowerQrGPT</div>
+              <div className="font-bold text-lg">ElSaltoWeb QrGPT</div>
             </Link>
             <div className="md:hidden">
               <button
@@ -68,7 +68,11 @@ const Navbar = () => {
             </div>
           </div>
           <Suspense fallback={<div>Cargando...</div>}>
-            <NavbarContent state={state} setState={setState} pathname={pathname} />
+            <NavbarContent
+              state={state}
+              setState={setState}
+              pathname={pathname}
+            />
           </Suspense>
         </div>
       </nav>
@@ -95,7 +99,7 @@ function NavbarContent({
     handleState();
   }, [pathname, searchParams, setState]);
 
-  const navigation = [{ title: 'Homepage', path: '/' }];
+  const navigation = [{ title: 'Inicio', path: '/' }];
 
   return (
     <div
@@ -123,6 +127,5 @@ function NavbarContent({
     </div>
   );
 }
-
 
 export default Navbar;
