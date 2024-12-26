@@ -17,22 +17,34 @@ const Footer = () => (
             </h4>
             <ul className="space-y-1">
               <li>
-                <a href="/servicios" className="hover:text-white transition">
-                  Servicios
+                <a
+                  href="https://www.elsaltoweb.es"
+                  className="hover:text-white transition"
+                >
+                  elsaltoweb.es
                 </a>
               </li>
               <li>
-                <a href="/testimonials" className="hover:text-white transition">
-                  Casos de Éxito
+                <a
+                  href="https://www.elsaltoweb.es/proyectos"
+                  className="hover:text-white transition"
+                >
+                  Proyectos
                 </a>
               </li>
               <li>
-                <a href="/blog" className="hover:text-white transition">
-                  Blog
+                <a
+                  href="https://www.elsaltoweb.es/recursos"
+                  className="hover:text-white transition"
+                >
+                  Recursos
                 </a>
               </li>
               <li>
-                <a href="/contacto" className="hover:text-white transition">
+                <a
+                  href="mailto:atobio459@gmail.com"
+                  className="hover:text-white transition"
+                >
                   Contacto
                 </a>
               </li>
